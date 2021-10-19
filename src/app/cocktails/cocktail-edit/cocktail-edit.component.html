@@ -1,0 +1,75 @@
+<br><br><br><br>
+<div clas="row">
+  <div class="col-xs-12">
+    <form [formGroup]="cocktailForm" (ngSubmit)="onSave()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit"class="btn btn-success"[disabled]="!cocktailForm.valid">Save</button>
+          <button type="submit"class="btn btn-danger" (click)="onCancelAndSave()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="nume">Name</label>
+            <input type="text" id="nume" class="form-control" formControlName="nume">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="poza">Image (URL)</label>
+            <input type="text" id="poza" class="form-control" formControlName="poza" #poza>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="poza.value" style="max-height: 280px" class="img-responsive">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12" formArrayName="ingrediente">
+          <div class="row"
+               *ngFor="let ingredientCtrl of controls; let i = index"
+              [formGroupName]="i"
+              style="margin-top: 10px">
+            <div class="input-group mb-3">
+              <input type="text" style="max-width: 300px" class="form-control" formControlName="name">
+              <div class="input-group-append">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="onDeleteIngredient(i)"
+                >X</button>
+              </div>
+            </div>
+
+          </div>
+
+          <hr>
+
+
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddIngredient()">Add ingredient
+                </button>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

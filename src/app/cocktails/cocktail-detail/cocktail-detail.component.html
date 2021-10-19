@@ -1,0 +1,52 @@
+
+<div class="row">
+  <div class="col-xs-12">
+    <img [src]="cocktail.poza" alt="{{cocktail.nume}}" class="img-responsive" style="max-height:280px">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-xs-12" style="color: darkgoldenrod">
+    <h1>{{cocktail.nume}}</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12" >
+    <div class="btn-group" appDropdown>
+      <button type="button"
+              class="btn btn-primary dropdown-toggle"
+              data-toggle="dropdown"
+              style="background-color:darksalmon;
+              color: black;
+              border-color: darksalmon" >
+
+        Manage <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+
+        <li class="dropdown-item" ><a  style="color: black; cursor: pointer" (click)="editCocktail()">Edit</a></li>
+        <li class="dropdown-item" ><a  style="color: black; cursor: pointer" (click)="onDeleteCocktail()">Delete</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+<hr style="color: peachpuff">
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor="let ingredient of cocktail.ingrediente">
+        {{ingredient.name}}
+
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+

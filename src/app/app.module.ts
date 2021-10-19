@@ -1,8 +1,10 @@
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ClickOutsideModule } from 'ng-click-outside';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from "./header/header.component";
@@ -19,6 +21,13 @@ import {CocktailsService} from "./cocktails/cocktails.service";
 import {cocktailDataStorageService} from "./shared/cocktailData-storage.service";
 import {LoginComponent} from "./authentication/login/login.component";
 import {SignupComponent} from "./authentication/signup/signup.component";
+import {LoadingGifComponent} from "./shared/loading-gif/loading-gif.component";
+import {AuthInterceptorService} from "./authentication/auth-interceptor.service";
+import { ProduseComponent } from './cocktail-shop/produse/produse.component';
+import { FooterComponent } from './cocktail-shop/footer/footer.component';
+import { ShopHeaderComponent } from './cocktail-shop/shop-header/shop-header.component';
+import {CarouselComponent} from "./cocktail-shop/carousel/carousel.component";
+import {NgbCarouselConfig} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -33,7 +42,12 @@ import {SignupComponent} from "./authentication/signup/signup.component";
     ListstartComponent,
     CocktailEditComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    LoadingGifComponent,
+    ProduseComponent,
+    FooterComponent,
+    ShopHeaderComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +55,11 @@ import {SignupComponent} from "./authentication/signup/signup.component";
     RoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    NgbModule
 
   ],
-  providers: [CocktailsService,cocktailDataStorageService],
+  providers: [CocktailsService,cocktailDataStorageService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

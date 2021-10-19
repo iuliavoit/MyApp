@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p></p>
+    <button class="btn btn-success" style=" background-color:#fae1dd; border-color:#fae1dd; color: black" (click)="addCocktail()">
+      Add Cocktail
+    </button>
+
+
+
+  </div>
+
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+
+    <app-cocktail-item
+      *ngFor="let cocktailElement of cocktails; let i= index"
+      [cocktail]="cocktailElement"
+      [index]="i"
+
+    >
+    </app-cocktail-item>
+  </div>
+</div>
+
+

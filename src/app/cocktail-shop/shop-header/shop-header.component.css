@@ -1,0 +1,11 @@
+li {
+  font-weight: bold;
+  font-family: Arial;
+  padding: 20px;
+}
+nav{
+  background-color: #f8edeb;
+}
+nav:hover{
+  background-color:#fae1dd;
+}

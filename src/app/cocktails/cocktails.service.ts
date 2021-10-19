@@ -1,0 +1,59 @@
+import {Cocktail} from "./cocktail.model";
+import {Ingredient} from "../shared/ingredients.model";
+import {Injectable} from "@angular/core";
+import {Subject} from "rxjs";
+
+@Injectable()
+export class CocktailsService{
+
+  cocktailsChanged=new Subject<Cocktail[]>();
+
+    //private cocktails: Cocktail[]=[
+    //new Cocktail('Aperol Spritz', 'https://i1.wp.com/maopub.ro/wp-content/uploads/2020/09/aperol-spritz.jpg?fit=1300%2C1300&ssl=1',
+     // [new Ingredient("Aperol"),new Ingredient("Prosecco"),new Ingredient("Orange Juice"),new Ingredient("Soda Water")]
+     // ),
+   // new Cocktail('Pina Colada', 'https://cdn.shopify.com/s/files/1/0037/6714/0422/products/swzjjrcehfuoah8kn4hz_800x.jpg?v=1615853893',
+   //   [new Ingredient("White rum"),new Ingredient("Pineapple Juice"),new Ingredient("Coconut cream")]
+   //   ),
+   // new Cocktail('Mojito', 'https://www.acouplecooks.com/wp-content/uploads/2019/12/Mojito-007.jpg',
+   //   [new Ingredient("White rum"),new Ingredient("Sprite"),new Ingredient("Fresh mint"),new Ingredient("Brown sugar")]
+   //   ),
+   // new Cocktail('Margarita', 'data:image/jpeg;base64,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',
+   //   [new Ingredient("Silver Tequila"),new Ingredient("Orange Liqueuer")]
+    //  ),
+   // new Cocktail('Aperol Spritz', 'https://i1.wp.com/maopub.ro/wp-content/uploads/2020/09/aperol-spritz.jpg?fit=1300%2C1300&ssl=1',
+    //  []
+  //  )
+
+ // ];
+
+    private cocktails:Cocktail[]=[];
+    getCocktails(){
+      return this.cocktails.slice();
+    }
+
+    getSingleCocktail(idx:number){
+      return this.cocktails[idx];
+    }
+
+    addCocktail(cocktail:Cocktail){
+      this.cocktails.push(cocktail);
+      this.cocktailsChanged.next(this.cocktails.slice());
+    }
+
+    editCocktail(index:number, newCocktail:Cocktail){
+      this.cocktails[index]=newCocktail;
+      this.cocktailsChanged.next(this.cocktails.slice());
+    }
+
+    deleteCocktail(index:number){
+      this.cocktails.splice(index,1);
+      this.cocktailsChanged.next(this.cocktails.slice());
+
+    }
+
+    setCocktails(cocktails: Cocktail[]){
+      this.cocktails=cocktails;
+      this.cocktailsChanged.next(this.cocktails.slice());
+    }
+}

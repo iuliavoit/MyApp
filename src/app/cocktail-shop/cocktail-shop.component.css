@@ -1,0 +1,15 @@
+.div-1 {
+  background-color: revert;
+}
+.gradient {
+  background-image: linear-gradient(to right, #edddd4, #a15055);
+}
+.app-footer{
+
+  background-image: linear-gradient(to right, #edddd4, #bb8588);
+}
+
+.container{
+  background-image: linear-gradient(to right, #edddd4, #a15055);
+  height: inherit;
+}

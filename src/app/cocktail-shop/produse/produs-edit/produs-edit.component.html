@@ -1,0 +1,56 @@
+<div clas="row">
+  <div class="col-xs-12">
+    <form [formGroup]="produsForm" (ngSubmit)="onSave()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit"class="btn btn-success"[disabled]="!produsForm.valid">Save</button>
+          <button type="submit"class="btn btn-danger" (click)="onCancelAndSave()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="nume">Product Name</label>
+            <input type="text" id="nume" class="form-control" formControlName="nume">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="poza">Image (URL)</label>
+            <input type="text" id="poza" class="form-control" formControlName="poza" #poza>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="poza.value" style="max-height: 280px" class="img-responsive">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="pret">Price</label>
+            <input type="number" id="pret" class="form-control" formControlName="pret" >
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="categorie">Category</label>
+            <input type="text" id="categorie" class="form-control" formControlName="categorie">
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

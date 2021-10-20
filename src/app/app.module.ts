@@ -27,7 +27,13 @@ import { ProduseComponent } from './cocktail-shop/produse/produse.component';
 import { FooterComponent } from './cocktail-shop/footer/footer.component';
 import { ShopHeaderComponent } from './cocktail-shop/shop-header/shop-header.component';
 import {CarouselComponent} from "./cocktail-shop/carousel/carousel.component";
-import {NgbCarouselConfig} from "@ng-bootstrap/ng-bootstrap";
+import { HomepageComponent } from './cocktail-shop/homepage/homepage.component';
+import { ProduseListComponent} from "./cocktail-shop/produse/produse-list/produse-list.component";
+import { ProduseItemComponent } from './cocktail-shop/produse/produse-item/produse-item.component';
+import {produsDataStorageService} from "./shared/produsData-storage.service";
+import {ProdusService} from "./cocktail-shop/produse/produs.service";
+import { AdminhubComponent } from './adminhub/adminhub.component';
+import { ProdusEditComponent } from './cocktail-shop/produse/produs-edit/produs-edit.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,12 @@ import {NgbCarouselConfig} from "@ng-bootstrap/ng-bootstrap";
     ProduseComponent,
     FooterComponent,
     ShopHeaderComponent,
-    CarouselComponent
+    CarouselComponent,
+    HomepageComponent,
+    ProduseListComponent,
+    ProduseItemComponent,
+    AdminhubComponent,
+    ProdusEditComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +70,7 @@ import {NgbCarouselConfig} from "@ng-bootstrap/ng-bootstrap";
     NgbModule
 
   ],
-  providers: [CocktailsService,cocktailDataStorageService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}],
+  providers: [CocktailsService,cocktailDataStorageService, ProdusService, produsDataStorageService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

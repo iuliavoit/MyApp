@@ -1,4 +1,10 @@
-footer{
-  background-image: linear-gradient(to right, #15161d, darkred);
+footer#footer {
+  background: red;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  overflow: auto;
 }
 

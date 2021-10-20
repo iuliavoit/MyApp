@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {produsDataStorageService} from "../../shared/produsData-storage.service";
 
 @Component({
   selector: 'app-produse',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProduseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataStorage:produsDataStorageService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.dataStorage.fetchProduse().subscribe();
+
   }
 
 }

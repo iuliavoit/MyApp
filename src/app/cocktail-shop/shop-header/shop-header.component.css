@@ -2,9 +2,10 @@ li {
   font-weight: bold;
   font-family: Arial;
   padding: 20px;
+
 }
 nav{
-  background-color: #f8edeb;
+  background-image: linear-gradient(to right, #edddd4, #a15055);
 }
 nav:hover{
   background-color:#fae1dd;

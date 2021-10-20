@@ -12,6 +12,7 @@ import {Observable} from "rxjs";
 export class LoginComponent {
   isLoading=false;
   error:string=null;
+  isAdmin=false;
   constructor(private authService:AuthService, private router:Router) { }
 
 
@@ -22,6 +23,9 @@ export class LoginComponent {
     }
     const email=loginform.value.email;
     const password=loginform.value.password;
+    if(email==="admin@yahoo.com"&&password==="adminadmin"){
+      this.isAdmin=true;
+    }
     let authObs: Observable<AuthResponseData>;
     this.isLoading=true;
     authObs=this.authService.login(email,password);
@@ -29,6 +33,8 @@ export class LoginComponent {
       resData => {
         console.log(resData);
         this.isLoading = false;
+        if(this.isAdmin===true){this.router.navigate(['/adminhub']);}
+        else
         this.router.navigate(['/cocktails']);
       },
       errorMessage => {

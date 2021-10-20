@@ -1,0 +1,21 @@
+p {
+  animation: color-change 5s infinite;
+}
+.curcubeu{
+  animation: color-change 5s infinite;
+}
+@keyframes color-change {
+  0% { color: red; }
+  25% {color: green; }
+  50% { color: blue; }
+  75% { color: yellow;}
+  100% { color: red; }
+}
+.dimensiune{
+  font-size: 40px;
+  font-weight: bold;
+}
+.imgcontainer {
+  text-align: center;
+
+}

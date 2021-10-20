@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {cocktailDataStorageService} from "../shared/cocktailData-storage.service";
 
 
 @Component({
@@ -8,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class CocktailsComponent implements OnInit {
-  constructor() { }
+  constructor(private dataSt:cocktailDataStorageService) { }
 
   ngOnInit(){
-
+  this.dataSt.fetchCocktails().subscribe();
 
   }
 

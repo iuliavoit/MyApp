@@ -12,14 +12,15 @@
     <div class="collapse-horizontal navbar-collapse" >
       <ul class="nav navbar-nav">
         <li routerLinkActive="active" *ngIf="isLogged"><a routerLink="/cocktails"  style="text-decoration-line: none; color: black ;border-right: black " >Cocktails</a></li>
-        <li class="dropdown" appDropdown *ngIf="isLogged" >
+        <!--<li class="dropdown" appDropdown *ngIf="isLogged" >
           <a style="cursor: pointer;color: black" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu" style="background-color: #fae1dd;max-height: 200px">
             <li><a style="cursor: pointer;color: black;background-color: #fae1dd;max-height: 50px"(click)="onSaveData()">Save Cocktails</a></li>
             <li><a style="cursor: pointer;color: black;background-color: #fae1dd;max-height: 50px"(click)="onFetchData()">Fetch Cocktails</a></li>
           </ul>
-        </li>
+        </li>-->
         <li routerLinkActive="active"><a routerLink="/shop/homepage"  style="text-decoration-line: none;color: black ">The Cocktail Shop</a></li>
+        <li routerLinkActive="active" *ngIf="isAdmin"><a routerLink="/adminhub"  style="text-decoration-line: none;color: black ">Admin Hub</a></li>
        <!-- <li routerLinkActive="active"><a  routerLink="/login"    style=" text-decoration-line: none;color: black; ">Login</a></li>
         <li routerLinkActive="active"><a  routerLink="/signup"    style=" text-decoration-line: none;color: black; ">Sign Up</a></li>-->
       </ul>

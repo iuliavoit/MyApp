@@ -1,9 +1,10 @@
 li {
   font-weight: bold;
-  font-family: Arial;
+  font-family: 'Crimson Text', serif;
   padding: 20px;
 
 }
+
 nav{
   background-image: linear-gradient(to right, #edddd4, #a15055);
 }

@@ -1,12 +1,12 @@
-
+<div class="container-fullwidth">
 <div class="row">
   <div *ngIf="isLoading" style="text-align: center;width:800px; margin:0 auto">
     <app-loading-gif></app-loading-gif>
   </div>
-
+  <app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert>
 <form #loginform="ngForm" method="post" (ngSubmit)="onLogin(loginform)"*ngIf="!isLoading">
 
-  <div class="imgcontainer">
+  <div class="imgcontainer" >
     <img src='https://media.istockphoto.com/photos/five-colorful-gin-tonic-cocktails-in-wine-glasses-on-bar-counter-in-picture-id928321242?k=20&m=928321242&s=612x612&w=0&h=O_6_UmQVHVN9DQkxvLOSQxOICukOAbxaluBf3vAgs6Y=' alt="Avatar" class="avatar" >
   </div>
 <br><br>
@@ -19,9 +19,8 @@
     <input type="password" #password  placeholder="Enter Password" ngModel name="password" required minlength="6">
 
     <button class="btn-danger" type="submit"[disabled]="!loginform.valid">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+
+
     <div class="alert alert-danger"style="text-align: center ; position: inherit" *ngIf="error">
       <p>{{error}}</p>
     </div>
@@ -31,3 +30,4 @@
 </form>
 </div>
 
+</div>

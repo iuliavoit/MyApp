@@ -1,11 +1,60 @@
-<a style="cursor: pointer;"
+<!--<a style="cursor: pointer;"
    [routerLink]="[index]"
-   routerLinkActive="active"
-   class="list-group-item clearfix" >
-  <div class="pull-left">
-    <h4 class="list-group-item-heading" >{{produs.name}}</h4>
+   routerLinkActive="active" >-->
+<br>
+ <div class="container d-flex  mt-50 mb-50" >
+
+    <div  class="row">
+
+      <div class="col-lg-24 col-md-3 col-sm-4 col-xs-6"*ngFor="let produs of produse;let i=index">
+        <div class="product-thumb" >
+          <div class="image">
+            <img src="{{produs.poza}}" style="width: 175px;height: 240px;padding-top: 50px" alt="" class="img-responsive">
+          </div>
+        <div>
+          <div class="caption">
+            <div class="product-title">
+              <h4>{{produs.nume}}</h4>
+            <div class="categorie">
+              {{produs.categorie}}
+
+            </div>
+            </div>
+            <p></p>
+            <p class="price">
+              <span class="price-new">{{produs.pret}} RON</span>
+              <span class="price-old">{{produs.pret+6}} RON</span>
+              <span class="price-tax">VAT included</span>
+            </p>
+            <div class="button-group">
+              <button type="button" (click)="onAddToCart(produs)">
+
+                <span class="addtocartaction">
+                  <i class="fa fa-shopping-cart"></i>
+                </span>
+                <span class="addtocarttext">
+                  Add to cart
+                </span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+        </div>
+          <!--<div class="card-body">
+            <h5 class="card-title">{{produs.nume}} </h5>
+            <h6 class="mb-0 font-weight-semibold">{{produs.pret}} RON</h6>
+            <h6 class="card-title">Category:{{produs.categorie}}</h6>
+
+            <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
+            <button type="button" class="btn bg-cart" (click)="onAddToCart(produs)"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+          </div>
+        </div>
+-->
+      </div>
+
+      </div>
   </div>
-  <span class="pull-right" >
-        <img src="{{produs.picture}}" alt="{{produs.name}}" class="img-responsive" style="max-height:50px; ">
-  </span>
-</a>
+
+<br>
+

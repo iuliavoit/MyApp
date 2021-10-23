@@ -1,7 +1,8 @@
 export class Produs{
   id:number;
-  name:string;
-  price:number;
-  category:string;
-  picture:string;
+  nume:string;
+  pret:number;
+  categorie:string;
+  poza:string;
+  cantitate:number;
 }

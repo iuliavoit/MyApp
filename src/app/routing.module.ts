@@ -9,11 +9,17 @@ import {CocktailEditComponent} from "./cocktails/cocktail-edit/cocktail-edit.com
 import {CocktailsResolverService} from "./cocktails/cocktails-resolver.service";
 import {SignupComponent} from "./authentication/signup/signup.component";
 import {AuthGuard} from "./authentication/auth.guard";
+import {AdminGuard} from "./authentication/admin.guard";
 import {ProduseComponent} from "./cocktail-shop/produse/produse.component";
 import {HomepageComponent} from "./cocktail-shop/homepage/homepage.component";
 import {AdminhubComponent} from "./adminhub/adminhub.component";
-import {ProdusEditComponent} from "./cocktail-shop/produse/produs-edit/produs-edit.component";
+import {ProdusAddComponent} from "./cocktail-shop/produse/produs-add/produs-add.component";
 import {ProductsResolverService} from "./cocktail-shop/produse/products-resolver.service";
+import {ProdusEditComponent} from "./cocktail-shop/produse/produs-edit/produs-edit.component";
+import {ProdusDetailComponent} from "./cocktail-shop/produse/produs-edit/produs-detail/produs-detail.component";
+import {EditComponent} from "./cocktail-shop/produse/produs-edit/edit/edit.component";
+import {CartComponent} from "./cocktail-shop/cart/cart.component";
+import {CheckoutComponent} from "./cocktail-shop/checkout/checkout.component";
 
 const routes: Routes= [
   {path:'', redirectTo: '/cocktails',pathMatch:'full'},
@@ -26,13 +32,19 @@ const routes: Routes= [
     ]},
   {path: 'shop', component: CocktailShopComponent, children:[
       {path:'homepage',component: HomepageComponent},
-      {path:'products', component: ProduseComponent}
+      {path:'products', component: ProduseComponent},
+      {path:'cart',component: CartComponent},
+      {path:'checkout',component:CheckoutComponent},
     ]},
   {path:'login',component:LoginComponent},
   {path:'signup', component:SignupComponent},
-  {path: 'adminhub' ,component: AdminhubComponent, children:[
+  {path: 'adminhub' ,component: AdminhubComponent,canActivate:[AdminGuard], children:[
       //{path:'',redirectTo:'/shop',pathMatch:'full'},
-      {path:'adaugare',component: ProdusEditComponent}
+      {path:'adaugare',component: ProdusAddComponent},
+      {path:'editare',component: ProdusEditComponent,children:[
+          {path: ':id', component:ProdusDetailComponent, resolve:[ProductsResolverService] },
+          {path :':id/edit', component:EditComponent, resolve:[ProductsResolverService]}
+        ]}
     ]},
 
 

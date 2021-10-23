@@ -1,0 +1,9 @@
+input{
+  width:300px !important;
+}
+.container{
+  justify-content: center;
+  background-color: rgba(255,255,255,0.9);
+  padding: 25px 30px 30px ;
+  box-shadow: 0 0 10px rgba(223, 187, 177, 0.8);
+}

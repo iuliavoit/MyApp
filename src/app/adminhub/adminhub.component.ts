@@ -18,7 +18,7 @@ export class AdminhubComponent implements OnInit {
   }
   mergemlaEditare()
   {
-    this.router.navigate(['/editare']).then();
+    this.router.navigate(['adminhub/editare']).then();
   }
   mergemlaAdaugare()
   {

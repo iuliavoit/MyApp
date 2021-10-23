@@ -1,12 +1,14 @@
 import {Produs} from "./produs.model";
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs";
+import {Cart} from "../cart/cart.model";
 
 
 @Injectable()
 export class ProdusService{
   produsChanged=new Subject<Produs[]>();
   private produse:Produs[]=[];
+
 
 
   getProduse(){
@@ -16,11 +18,13 @@ export class ProdusService{
     return this.produse[idx];
   }
   addProduct(produs:Produs){
+    produs.cantitate=1;
     this.produse.push(produs);
     this.produsChanged.next(this.produse.slice());
   }
 
   editProduct(index:number, newProdus:Produs){
+
     this.produse[index]=newProdus;
     this.produsChanged.next(this.produse.slice());
   }

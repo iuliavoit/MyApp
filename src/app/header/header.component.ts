@@ -11,13 +11,20 @@ import {Subscription} from "rxjs";
 export class HeaderComponent implements OnInit,OnDestroy{
   private userSub:Subscription;
   isLogged=false;
-
+  isAdmin=false;
   constructor(private dataStorage:cocktailDataStorageService, private authService:AuthService){
 
   }
   ngOnInit() {
     this.userSub=this.authService.user.subscribe(user=>{
+
         this.isLogged=!user ? false:true;
+        if(this.isLogged===true)
+        {let nume=user.email;
+      if(nume==="admin@yahoo.com") {
+        this.isAdmin = true;
+      }
+      }
     });
   }
 
@@ -35,6 +42,7 @@ export class HeaderComponent implements OnInit,OnDestroy{
   }
 
   onLogout() {
+    this.isAdmin=false;
     this.authService.logout();
   }
 }

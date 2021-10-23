@@ -1,0 +1,73 @@
+<div class="card"style="min-height: 300px">
+  <div class="row">
+    <div class="col-md-6 cart">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>Checkout Summary</b></h4>
+          </div>
+          <div class="col align-self-center text-right text-muted">{{length}} items</div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom" data-closable="slide-out-right" *ngFor="let produs of produse">
+        <div class="row main align-items-center">
+          <div class="col-2"><img class="img-fluid" src="{{produs.poza}}"></div>
+          <div class="col">
+            <div class="row text-muted">{{produs.nume}} </div>
+            <div class="row">Quantity:{{produs.cantitate}}</div>
+            <div class="row">Category:{{produs.categorie}}</div>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+
+      <div class="row"><h5><b>TOTAL PRICE: {{totalBani}} RON</b></h5></div>
+      <div class="back-to-shop"><a routerLink="/shop/cart" routerLinkActive="active">&leftarrow;</a><span class="text-muted">Back to cart</span></div>
+    </div>
+
+
+
+
+    <div class="col-md-6 summary">
+      <div>
+        <h5><b>Credentials</b></h5>
+      </div>
+      <hr>
+      <div class="container">
+        <form [formGroup]="dateForm" (ngSubmit)="onPlaceOrder()">
+        <label for="name1"><b>First Name</b></label>
+        <input type="text" #name1 id="name1" placeholder="Enter first name" ngModel name="nam1e" formControlName="nume" required name1>
+
+        <label for="name"><b>Last name</b></label>
+        <input type="text" #name id="name" placeholder="Enter last name" ngModel name="name" formControlName="prenume" required name>
+
+        <label for="address"><b>Street address</b></label>
+        <input type="text" #address id="address" placeholder="Enter street address" ngModel name="address" formControlName="adresa" required address>
+
+        <label for="city"><b>City</b></label>
+        <input type="text" #city id="city" placeholder="Enter city" ngModel name="city" formControlName="oras" required city>
+
+        <label for="state"><b>State/Province</b></label>
+        <input type="text" #state id="state" placeholder="Enter state/province" ngModel name="state" formControlName="judet" required state>
+
+        <label for="zip"><b>Zip Code</b></label>
+        <input type="text" #zip id="zip" placeholder="Enter zip code" ngModel name="zip" formControlName="zip" required zip>
+
+        </form>
+        <form>
+          <p><b>Payment Method</b></p> <select>
+          <option class="text-muted">Pay at delivery</option>
+        </select>
+
+        </form>
+        <button class="btn"  routerLinkActive="active" routerLink="/shop/homepage" (click)="onPlaceOrder()"><b>PLACE ORDER</b></button>
+      </div>
+
+
+    </div>
+  </div>
+</div>

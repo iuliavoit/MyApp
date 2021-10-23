@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Cocktail} from "../cocktail.model";
 import {CocktailsService} from "../cocktails.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {cocktailDataStorageService} from "../../shared/cocktailData-storage.service";
 
 @Component({
   selector: 'app-cocktail-detail',
@@ -12,7 +13,7 @@ export class CocktailDetailComponent implements OnInit {
 
   cocktail:Cocktail;
   id:number;
-  constructor(private cocktailService : CocktailsService, private route: ActivatedRoute, private router:Router) {
+  constructor(private cocktailService : CocktailsService, private route: ActivatedRoute, private router:Router,private dataStorage:cocktailDataStorageService) {
 
   }
 
@@ -29,6 +30,7 @@ export class CocktailDetailComponent implements OnInit {
 
   onDeleteCocktail() {
     this.cocktailService.deleteCocktail(this.id);
+    this.dataStorage.storeCocktails();
     this.router.navigate(['/cocktails']);
   }
 }

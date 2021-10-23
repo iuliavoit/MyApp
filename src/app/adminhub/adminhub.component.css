@@ -1,9 +1,4 @@
-p {
-  animation: color-change 5s infinite;
-}
-.curcubeu{
-  animation: color-change 5s infinite;
-}
+
 @keyframes color-change {
   0% { color: red; }
   25% {color: green; }
@@ -18,4 +13,25 @@ p {
 .imgcontainer {
   text-align: center;
 
+}
+
+
+.button {
+  display: inline-block;
+  width:300px;
+  text-align: center;
+  background-image: linear-gradient(to right top, #e49b00, #ff9d7b, #ffb8cd, #ffdffb, #ffffff);
+  font-weight: bold;
+  padding: 1.18em 1.32em 1.03em;
+  line-height: 1;
+  border-radius: 1em;
+  position: relative;
+  min-width: 8.23em;
+  text-decoration: none;
+
+  font-size: 1.25rem;
+}
+
+.button:hover{
+  background-image: linear-gradient(to right top, #ec0940, #f65d70, #f98f9d, #f6bcc5, #ece7e8);
 }

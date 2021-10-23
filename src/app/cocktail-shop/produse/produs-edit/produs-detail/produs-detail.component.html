@@ -1,0 +1,43 @@
+<div class="container">
+<div class="row" >
+  <div class="col-xs-12">
+    <img [src]="produs.poza" alt="{{produs.nume}}" class="img-responsive" style="max-height:280px;padding-left: 170px">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-xs-12" style="color: darkgoldenrod">
+    <h1>Name: {{produs.nume}}</h1>
+    <h3>Category: {{produs.categorie}}</h3>
+    <h3>Price: {{produs.pret}} RON</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12" >
+    <div class="btn-group" appDropdown>
+      <button type="button"
+              class="btn btn-primary dropdown-toggle"
+              data-toggle="dropdown"
+              style="background-color:darksalmon;
+              color: black;
+              border-color: darksalmon" >
+
+        Manage Product<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+
+        <li class="dropdown-item" ><a  style="color: black; cursor: pointer" (click)="editProduct()">Edit Product</a></li>
+        <li class="dropdown-item" ><a  style="color: black; cursor: pointer" (click)="deleteProduct()">Delete Product</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+</div>

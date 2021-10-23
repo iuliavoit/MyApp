@@ -1,4 +1,3 @@
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,7 +32,18 @@ import { ProduseItemComponent } from './cocktail-shop/produse/produse-item/produ
 import {produsDataStorageService} from "./shared/produsData-storage.service";
 import {ProdusService} from "./cocktail-shop/produse/produs.service";
 import { AdminhubComponent } from './adminhub/adminhub.component';
+import { ProdusAddComponent } from './cocktail-shop/produse/produs-add/produs-add.component';
 import { ProdusEditComponent } from './cocktail-shop/produse/produs-edit/produs-edit.component';
+import { ProdusEditListComponent } from './cocktail-shop/produse/produs-edit/produs-edit-list/produs-edit-list.component';
+import { ProdusEditListItemComponent } from './cocktail-shop/produse/produs-edit/produs-edit-list/produs-edit-list-item/produs-edit-list-item.component';
+import { ProdusDetailComponent } from './cocktail-shop/produse/produs-edit/produs-detail/produs-detail.component';
+import { EditComponent } from './cocktail-shop/produse/produs-edit/edit/edit.component';
+import { AlertComponent } from './shared/alert/alert.component';
+import { CartComponent } from './cocktail-shop/cart/cart.component';
+import {CartDataStorageService} from "./shared/cartData-Storage.service";
+import { CheckoutComponent } from './cocktail-shop/checkout/checkout.component';
+import {CartService} from "./cocktail-shop/cart/cart.service";
+
 
 @NgModule({
   declarations: [
@@ -58,7 +68,15 @@ import { ProdusEditComponent } from './cocktail-shop/produse/produs-edit/produs-
     ProduseListComponent,
     ProduseItemComponent,
     AdminhubComponent,
-    ProdusEditComponent
+    ProdusAddComponent,
+    ProdusEditComponent,
+    ProdusEditListComponent,
+    ProdusEditListItemComponent,
+    ProdusDetailComponent,
+    EditComponent,
+    AlertComponent,
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +88,7 @@ import { ProdusEditComponent } from './cocktail-shop/produse/produs-edit/produs-
     NgbModule
 
   ],
-  providers: [CocktailsService,cocktailDataStorageService, ProdusService, produsDataStorageService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}],
+  providers: [CocktailsService,cocktailDataStorageService, ProdusService, CartDataStorageService, CartService, produsDataStorageService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

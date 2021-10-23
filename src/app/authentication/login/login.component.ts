@@ -48,4 +48,8 @@ export class LoginComponent {
     loginform.reset();
   }
 
+  onHandleError() {
+    this.error=null;
+  }
+
 }

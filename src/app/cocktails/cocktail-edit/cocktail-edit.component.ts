@@ -3,6 +3,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CocktailsService} from "../cocktails.service";
 import {Cocktail} from "../cocktail.model";
+import {cocktailDataStorageService} from "../../shared/cocktailData-storage.service";
 
 @Component({
   selector: 'app-cocktail-edit',
@@ -14,7 +15,7 @@ export class CocktailEditComponent implements OnInit {
   editMode=false;
   cocktailForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private cocktailService: CocktailsService,private router:Router) { }
+  constructor(private route: ActivatedRoute, private cocktailService: CocktailsService,private router:Router,private dataStorage:cocktailDataStorageService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -63,8 +64,10 @@ export class CocktailEditComponent implements OnInit {
      // const newCocktail=new Cocktail(this.cocktailForm.value['nume'],this.cocktailForm.value['poza'],this.cocktailForm.value['ingrediente'])
       if(this.editMode){
         this.cocktailService.editCocktail(this.id,this.cocktailForm.value)
+        this.dataStorage.storeCocktails();
       }else{
         this.cocktailService.addCocktail(this.cocktailForm.value);
+        this.dataStorage.storeCocktails();
       }
 
       this.onCancelAndSave();

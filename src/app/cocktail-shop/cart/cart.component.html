@@ -1,0 +1,72 @@
+<div class="card"style="min-height: 300px">
+  <div class="row">
+    <div class="col-md-8 cart">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>Shopping Cart</b></h4>
+          </div>
+          <div class="col align-self-center text-right text-muted">{{length}} items</div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom" data-closable="slide-out-right" *ngFor="let produs of produse" >
+        <div class="row main align-items-center" *ngIf="!isNotEmpty">
+          <div class="col-2"><img class="img-fluid" src="{{produs.poza}}"></div>
+          <div class="col">
+            <div class="row text-muted">{{produs.nume}} </div>
+            <div class="row">{{produs.categorie}}</div>
+          </div>
+          <div class="col aaa"><!-- <a href="#">-</a><a href="#" class="border text">{{produs.cantitate}}</a><a href="#">+</a> </div>-->
+          <div class="input-group bootstrap-touchspin">
+            <span class="input-group-btn">
+              <button class="btn btn-default bootstrap-touchspin-down" type="button" (click)="onMinusOne(produs)">-</button>
+            </span>
+            <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none">
+            </span>
+            <input type="text" name="qty" value="{{produs.cantitate}}" class="input-qty form-control text-center" style="display: block;">
+            <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+            <span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button"(click)="onPlusOne(produs)">+</button></span>
+          </div>
+          </div>
+          <div class="col">{{produs.pret*produs.cantitate}} RON<!--<span class="close-button"  (click)="deteleFromCart()">  &#10005;</span>-->
+            <button class="btn-close" (click)="onMinusOne(produs)"></button>
+
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+      <div class="back-to-shop"><a routerLink="/shop/products" routerLinkActive="active">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+    </div>
+
+
+
+
+    <div class="col-md-4 summary" *ngIf="!isNotEmpty">
+      <div>
+        <h5><b>Summary</b></h5>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col" style="padding-left:0;">{{length}} items</div>
+        <div class="col text-right">{{totalBani}} RON</div>
+      </div>
+      <form>
+        <p>SHIPPING</p> <select>
+        <option class="text-muted">Standard-Delivery- 15 RON</option>
+      </select>
+
+      </form>
+      <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+        <div class="col">TOTAL PRICE</div>
+        <div class="col text-right">{{totalBani+15}} RON</div>
+      </div>
+      <button class="btn" *ngIf="!isNotEmpty" routerLinkActive="active" (click)=onChechout() routerLink="/shop/checkout">CHECKOUT</button>
+    </div>
+  </div>
+</div>

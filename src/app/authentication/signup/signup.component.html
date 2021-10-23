@@ -5,7 +5,7 @@
     <app-loading-gif></app-loading-gif>
   </div>
 
-
+<app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert>
 <form  #signupform="ngForm" method="post" (ngSubmit)="onSignUp(signupform)" *ngIf="!isLoading" >
 
   <div class="imgcontainer">
@@ -26,9 +26,7 @@
     <input type="password" #password  placeholder="Enter Password" ngModel name="password" required minlength="6">
 
     <button class="btn-danger" type="submit" [disabled]="!signupform.valid">Sign Up</button>
-    <div class="alert alert-danger"style="text-align: center ; position: inherit;max-height: 500px" *ngIf="error">
-      <p>{{error}}</p>
-    </div>
+
 
   </div>
 

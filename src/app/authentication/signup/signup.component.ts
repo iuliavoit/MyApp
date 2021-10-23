@@ -43,4 +43,9 @@ export class SignupComponent {
 
       signupform.reset();
     }
+
+  onHandleError() {
+    this.error=null;
+  }
 }
+

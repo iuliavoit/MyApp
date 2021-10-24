@@ -1,3 +1,11 @@
 input.ng-invalid.ng-touched{
   border: 2px solid red;
 }
+.container{
+  justify-content: center;
+  background-color: rgba(255,255,255,0.9);
+  padding: 30px  30px ;
+  box-shadow: 0 0 10px rgba(255,101,80,0.4);
+  /*height: 550px;*/
+  width: 700px;
+}

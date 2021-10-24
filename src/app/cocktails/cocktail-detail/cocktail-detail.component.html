@@ -1,6 +1,6 @@
-
+<div class="container" >
 <div class="row" >
-  <div class="col-xs-12"style="padding-top: 85px">
+  <div class="col-xs-12"style="padding-top: 30px">
     <img [src]="cocktail.poza" alt="{{cocktail.nume}}" class="img-responsive" style="max-height:280px">
   </div>
 
@@ -38,7 +38,7 @@
 <p></p>
 <div class="row">
   <div class="col-xs-12" style="padding-right: 300px">
-    <ul class="list-group" style="width: 409px;">
+    <ul class="list-group" style="width: 409px">
       <li class="list-group-item"
       *ngFor="let ingredient of cocktail.ingrediente">
         {{ingredient.name}}
@@ -48,5 +48,5 @@
   </div>
 </div>
 
-
+</div>
 

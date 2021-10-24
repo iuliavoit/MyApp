@@ -11,3 +11,7 @@ nav{
 nav:hover{
   background-color:#fae1dd;
 }
+.active {
+  background-color: #f8edeb;
+  border-color: #f8edeb;
+}

@@ -67,9 +67,9 @@ export class CartService {
   }
 
   initializare(){
-    for(let i=0;i<this.produse.length;i++) {
-      this.produse.splice(i,1);
-    }
+    //for(let i=0;i<=this.produse.length;i++) {
+      this.produse.splice(0,this.produse.length);
+    //}
     this.n='';
     this.p='';
     this.a='';
@@ -79,9 +79,7 @@ export class CartService {
   }
 
   getComanda() {
-    //console.log(this.z); pana aici se transmit parametrii ok
-   console.log(this.produse);
- //  this.comanda[0].produse= this.comanda[0].produse.concat(this.produse);
+
     this.i=this.i+1;
    this.comanda[this.i]=new Cart(this.n,this.p,this.o,this.j,this.a,this.z,this.produse);
    return this.comanda[this.i];
@@ -93,12 +91,6 @@ export class CartService {
     this.o=oras;
     this.j=judet;
     this.z=zip;
-  //  this.comanda[this.comanda.length].produse=this.produse.slice();
-  //  this.comanda[this.comanda.length].nume=this.n;
-   // this.comanda[this.comanda.length].nume=this.p;
-  //  this.comanda[this.comanda.length].nume=this.o;
-  //  this.comanda[this.comanda.length].nume=this.j;
-   // this.comanda[this.comanda.length].nume=this.z;
   }
 
   setProdus(produse: Produs[]) {

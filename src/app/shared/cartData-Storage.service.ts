@@ -11,9 +11,9 @@ export class CartDataStorageService{
   }
 
   storeComanda(){
-    const comanda=this.cartService.getComanda(); //comanda o sa aiba un vector de produse si un vector de date
+    const comanda=this.cartService.getComanda();
     console.log(comanda);
-    this.http.put('https://proiect-pw-b77a3-default-rtdb.europe-west1.firebasedatabase.app/comenzi.json',comanda)
+    this.http.post('https://proiect-pw-b77a3-default-rtdb.europe-west1.firebasedatabase.app/comenzi.json',comanda)
     .subscribe(response=>{console.log(response)});
   }
 }

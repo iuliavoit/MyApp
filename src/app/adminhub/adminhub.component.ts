@@ -25,4 +25,7 @@ export class AdminhubComponent implements OnInit {
     this.router.navigate(['adminhub/adaugare']).then();
   }
 
+  mergemlaComenzi() {
+    this.router.navigate(['adminhub/comenzi']).then();
+  }
 }

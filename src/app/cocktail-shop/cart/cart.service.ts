@@ -2,12 +2,15 @@ import {Injectable} from "@angular/core";
 import {Subject} from "rxjs";
 import {Produs} from "../produse/produs.model";
 import {Cart} from "./cart.model";
+import {Cocktail} from "../../cocktails/cocktail.model";
 
 @Injectable()
 export class CartService {
   produsChanged=new Subject<Produs[]>();
+  comanda2Changed=new Subject<Cart[]>();
   private produse:Produs[]=[];
   private comanda:Cart[]=[];
+  private comanda2:Cart[]=[];
   private n:string;
   private p:string;
   private a:string;
@@ -84,6 +87,9 @@ export class CartService {
    this.comanda[this.i]=new Cart(this.n,this.p,this.o,this.j,this.a,this.z,this.produse);
    return this.comanda[this.i];
   }
+  getComenzi(){
+    return this.comanda2.slice();
+  }
 
   setDate(nume,prenume,adresa,oras,judet,zip){
     this.n=nume;
@@ -96,5 +102,12 @@ export class CartService {
   setProdus(produse: Produs[]) {
     this.produse=produse;
     this.produsChanged.next(this.produse.slice());
+  }
+
+  setProduct(comanda: Cart[]) {
+
+      this.comanda2=comanda;
+      this.comanda2Changed.next(this.comanda2);
+
   }
 }

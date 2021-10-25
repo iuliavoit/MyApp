@@ -20,6 +20,7 @@ import {ProdusDetailComponent} from "./cocktail-shop/produse/produs-edit/produs-
 import {EditComponent} from "./cocktail-shop/produse/produs-edit/edit/edit.component";
 import {CartComponent} from "./cocktail-shop/cart/cart.component";
 import {CheckoutComponent} from "./cocktail-shop/checkout/checkout.component";
+import {SeeOrdersComponent} from "./adminhub/see-orders/see-orders.component";
 
 const routes: Routes= [
   {path:'', redirectTo: '/cocktails',pathMatch:'full'},
@@ -44,7 +45,8 @@ const routes: Routes= [
       {path:'editare',component: ProdusEditComponent,children:[
           {path: ':id', component:ProdusDetailComponent, resolve:[ProductsResolverService] },
           {path :':id/edit', component:EditComponent, resolve:[ProductsResolverService]}
-        ]}
+        ]},
+      {path:'comenzi',component: SeeOrdersComponent}
     ]},
 
 

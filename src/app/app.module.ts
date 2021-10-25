@@ -43,6 +43,9 @@ import { CartComponent } from './cocktail-shop/cart/cart.component';
 import {CartDataStorageService} from "./shared/cartData-Storage.service";
 import { CheckoutComponent } from './cocktail-shop/checkout/checkout.component';
 import {CartService} from "./cocktail-shop/cart/cart.service";
+import { SeeOrdersComponent } from './adminhub/see-orders/see-orders.component';
+import { ComandaListItemComponent } from './adminhub/see-orders/comanda-list-item/comanda-list-item.component';
+import { ComandaListComponent } from './adminhub/see-orders/comanda-list/comanda-list.component';
 
 
 @NgModule({
@@ -76,7 +79,10 @@ import {CartService} from "./cocktail-shop/cart/cart.service";
     EditComponent,
     AlertComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    SeeOrdersComponent,
+    ComandaListItemComponent,
+    ComandaListComponent
   ],
   imports: [
     BrowserModule,

@@ -70,9 +70,8 @@ export class CartService {
   }
 
   initializare(){
-    //for(let i=0;i<=this.produse.length;i++) {
-      this.produse.splice(0,this.produse.length);
-    //}
+
+    this.produse.splice(0,this.produse.length);
     this.n='';
     this.p='';
     this.a='';
@@ -104,10 +103,5 @@ export class CartService {
     this.produsChanged.next(this.produse.slice());
   }
 
-  setProduct(comanda: Cart[]) {
 
-      this.comanda2=comanda;
-      this.comanda2Changed.next(this.comanda2);
-
-  }
 }

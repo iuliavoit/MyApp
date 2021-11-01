@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {produsDataStorageService} from "../../../shared/produsData-storage.service";
-import {cocktailDataStorageService} from "../../../shared/cocktailData-storage.service";
 
 @Component({
   selector: 'app-produs-edit',

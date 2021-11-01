@@ -46,6 +46,12 @@ import {CartService} from "./cocktail-shop/cart/cart.service";
 import { SeeOrdersComponent } from './adminhub/see-orders/see-orders.component';
 import { ComandaListItemComponent } from './adminhub/see-orders/comanda-list-item/comanda-list-item.component';
 import { ComandaListComponent } from './adminhub/see-orders/comanda-list/comanda-list.component';
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
 
 
 @NgModule({
@@ -91,7 +97,12 @@ import { ComandaListComponent } from './adminhub/see-orders/comanda-list/comanda
     ReactiveFormsModule,
     HttpClientModule,
     ClickOutsideModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireFunctionsModule,
+    AngularFireAuthModule,
 
   ],
   providers: [CocktailsService,cocktailDataStorageService, ProdusService, CartDataStorageService, CartService, produsDataStorageService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}],

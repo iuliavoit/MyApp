@@ -12,10 +12,7 @@ export class AdminhubComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  mergemlaStergere()
-  {
-    this.router.navigate(['/sterge']).then();
-  }
+
   mergemlaEditare()
   {
     this.router.navigate(['adminhub/editare']).then();

@@ -1,5 +1,4 @@
 import {Cocktail} from "./cocktail.model";
-import {Ingredient} from "../shared/ingredients.model";
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs";
 

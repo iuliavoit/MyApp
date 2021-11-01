@@ -61,7 +61,7 @@ export class CocktailEditComponent implements OnInit {
 
     onSave()
     {
-     // const newCocktail=new Cocktail(this.cocktailForm.value['nume'],this.cocktailForm.value['poza'],this.cocktailForm.value['ingrediente'])
+
       if(this.editMode){
         this.cocktailService.editCocktail(this.id,this.cocktailForm.value)
         this.dataStorage.storeCocktails();
@@ -80,7 +80,7 @@ export class CocktailEditComponent implements OnInit {
 
   get
     controls()
-    { // a getter!
+    {
       return (<FormArray>this.cocktailForm.get('ingrediente')).controls;
     }
     onAddIngredient(){

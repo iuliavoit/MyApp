@@ -11,7 +11,10 @@ export class ProduseComponent implements OnInit {
   constructor(private dataStorage:produsDataStorageService) { }
 
   ngOnInit(){
-    this.dataStorage.fetchProduse().subscribe();
+    this.dataStorage.fetchProduse().subscribe(data=>
+    {
+      console.log(data);
+    });
 
   }
 

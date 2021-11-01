@@ -1,6 +1,19 @@
-<div class="row">
-  <div class="col-md-5">
-    {{data}}
-   <app-comanda-list></app-comanda-list>
+<div class="container">
+<div class="list row">
+  <div class="col-md-7" >
+    <h4 style="padding-left: 200px">Orders List</h4>
+    <ul class="list-group" >
+      <li style="cursor: pointer"
+        class="list-group-item"
+        *ngFor="let comanda of comenzi; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveOrder(comanda, i)"
+      ><b>Order made by: </b> <b style="color: darkorange">{{ comanda.nume}}, {{comanda.prenume}}</b> | Location:{{comanda.judet}}-{{comanda.oras}}-{{comanda.zip}}
+        <p><b>Products:</b></p>
+        <div *ngFor="let produs of comanda.produse">{{produs.nume}} | Quantity:{{produs.cantitate}}</div>
+
+      </li>
+    </ul>
   </div>
+</div>
 </div>

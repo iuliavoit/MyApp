@@ -4,6 +4,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ProdusService} from "../produs.service";
 import {produsDataStorageService} from "../../../shared/produsData-storage.service";
 
+
 @Component({
   selector: 'app-produs-edit',
   templateUrl: './produs-add.component.html',
@@ -11,51 +12,53 @@ import {produsDataStorageService} from "../../../shared/produsData-storage.servi
 })
 export class ProdusAddComponent implements OnInit {
 
-  id:number;
-  editMode=false;
+  id: number;
+  editMode = false;
   produsForm: FormGroup;
-  constructor(private route: ActivatedRoute, private produsService: ProdusService,private router:Router,private dataStorage:produsDataStorageService) { }
+
+  constructor(private route: ActivatedRoute, private produsService: ProdusService, private router: Router, private dataStorage: produsDataStorageService) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(
-      (params: Params)=>{
-        this.id= +params['id'];
-        this.editMode= params['id'] !=null;
+      (params: Params) => {
+        this.id = +params['id'];
+        this.editMode = params['id'] != null;
 
         this.initForm();
       }
-
     );
   }
+
   private initForm() {
 
     let produsName = '';
     let produsPoza = '';
-    let produsPret=0;
-    let produsCategorie='';
+    let produsPret = 0;
+    let produsCategorie = '';
 
     if (this.editMode) {
       const produs = this.produsService.getSingleProduct(this.id);
       produsName = produs.nume;
       produsPoza = produs.poza;
-      produsPret=produs.pret;
-      produsCategorie=produs.categorie;
+      produsPret = produs.pret;
+      produsCategorie = produs.categorie;
     }
 
     this.produsForm = new FormGroup({
       'nume': new FormControl(produsName, Validators.required),
       'poza': new FormControl(produsPoza, Validators.required),
-      'pret':new FormControl(produsPret,Validators.required),
-      'categorie':new FormControl(produsCategorie,Validators.required),
+      'pret': new FormControl(produsPret, Validators.required),
+      'categorie': new FormControl(produsCategorie, Validators.required),
 
     });
   }
-  onSave()
-  {
 
-    if(this.editMode){
-      this.produsService.editProduct(this.id,this.produsForm.value)
-    }else{
+  onSave() {
+
+    if (this.editMode) {
+      this.produsService.editProduct(this.id, this.produsForm.value)
+    } else {
       this.produsService.addProduct(this.produsForm.value);
     }
 
@@ -64,6 +67,15 @@ export class ProdusAddComponent implements OnInit {
 
   onCancelAndSave() {
     this.dataStorage.storeProduse();
-    this.router.navigate(['/adminhub'], {relativeTo:this.route});
+    this.router.navigate(['/adminhub'], {relativeTo: this.route});
   }
+
+
 }
+
+
+
+
+
+
+

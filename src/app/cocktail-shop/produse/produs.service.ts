@@ -1,14 +1,10 @@
 import {Produs} from "./produs.model";
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs";
-import {Cart} from "../cart/cart.model";
-
-
 @Injectable()
 export class ProdusService{
   produsChanged=new Subject<Produs[]>();
   private produse:Produs[]=[];
-
 
 
   getProduse(){

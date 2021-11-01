@@ -10,33 +10,38 @@ import {ActivatedRoute, Router, Routes} from "@angular/router";
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent implements OnInit,OnDestroy {
-  produse:Produs[];
+export class CheckoutComponent  implements OnInit {
+
+
+
+  produse: Produs[];
   dateForm: FormGroup;
-  length=0;
-  totalBani=0;
-  constructor(private cartService:CartService, private cartDataStorage:CartDataStorageService, private router:Router,private route: ActivatedRoute) { }
+  length = 0;
+  totalBani = 0;
+
+  constructor( private cartService: CartService, private cartDataStorage: CartDataStorageService, private router: Router, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-    this.produse=this.cartService.getProduse();
+    this.produse = this.cartService.getProduse();
     console.log(this.produse);
-    this.length=this.cartService.getTotalQty();
-    this.totalBani=this.cartService.getTotalBani();
-   // this.cartService.initializare();
+    this.length = this.cartService.getTotalQty();
+    this.totalBani = this.cartService.getTotalBani();
     this.initForm();
   }
 
-ngOnDestroy() {
-  this.cartService.initializare();
-}
+  ngOnDestroy() {
+    this.cartService.initializare();
+  }
 
   private initForm() {
     let nume = '';
     let prenume = '';
-    let adresa='';
-    let oras='';
-    let judet='';
-    let zip='';
+    let adresa = '';
+    let oras = '';
+    let judet = '';
+    let zip = '';
+    let produse=[];
 
     this.dateForm = new FormGroup({
       'nume': new FormControl(nume, Validators.required),
@@ -50,12 +55,17 @@ ngOnDestroy() {
   }
 
 
-  onPlaceOrder(){
+  onPlaceOrder() {
 
 
-    this.cartService.setDate(this.dateForm.value.nume,this.dateForm.value.prenume, this.dateForm.value.adresa,this.dateForm.value.oras,this.dateForm.value.judet,this.dateForm.value.zip);
-  console.log(this.produse);
+    this.cartService.setDate(this.dateForm.value.nume, this.dateForm.value.prenume, this.dateForm.value.adresa, this.dateForm.value.oras, this.dateForm.value.judet, this.dateForm.value.zip);
+    console.log(this.produse);
+
+
     this.cartDataStorage.storeComanda();
-    this.router.navigate(['/shop/homepage'], {relativeTo:this.route});
+
+    this.router.navigate(['/shop/homepage'], {relativeTo: this.route});
+
   }
+
 }

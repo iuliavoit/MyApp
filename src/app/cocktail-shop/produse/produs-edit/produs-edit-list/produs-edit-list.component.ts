@@ -1,9 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {produsDataStorageService} from "../../../../shared/produsData-storage.service";
-import {Cocktail} from "../../../../cocktails/cocktail.model";
 import {Subscription} from "rxjs";
 import {Produs} from "../../produs.model";
-import {CocktailsService} from "../../../../cocktails/cocktails.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProdusService} from "../../produs.service";
 

@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Produs} from "../produs.model";
 import {ProdusService} from "../produs.service";
-import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {CartService} from "../../cart/cart.service";
 
@@ -12,8 +11,6 @@ import {CartService} from "../../cart/cart.service";
   styleUrls: ['./produse-item.component.css']
 })
 export class ProduseItemComponent implements OnInit {
-  //@Input() produs: Produs;
- // @Input() index: number;
   produse: Produs[];
   subscription: Subscription;
 

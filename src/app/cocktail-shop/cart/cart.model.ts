@@ -2,7 +2,7 @@ import {Produs} from "../produse/produs.model";
 import {Ingredient} from "../../shared/ingredients.model";
 
 export class Cart{
-  public id:number;
+  //public id:number;
   public nume:string;
   public prenume:string;
   public oras:string;

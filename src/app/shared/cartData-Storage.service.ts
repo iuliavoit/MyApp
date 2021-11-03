@@ -16,6 +16,13 @@ export class CartDataStorageService {
   getAll(): AngularFireList<Cart> {
     return this.tutorialsRef;
   }
+  deleteone(key: string): Promise<void> {
+    return this.tutorialsRef.remove(key);
+  }
+
+  deleteAll(): Promise<void> {
+    return this.tutorialsRef.remove();
+  }
   storeComanda() {
     const comanda = this.cartService.getComanda();
     console.log(comanda);

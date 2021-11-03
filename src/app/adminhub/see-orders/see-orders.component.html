@@ -2,16 +2,21 @@
 <div class="list row">
   <div class="col-md-7" >
     <h4 style="padding-left: 200px">Orders List</h4>
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllOrders()">
+      Remove All
+    </button>
     <ul class="list-group" >
       <li style="cursor: pointer"
-        class="list-group-item"
+        class="list-group-item list-group-item-action list-group-item-secondary"
         *ngFor="let comanda of comenzi; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveOrder(comanda, i)"
       ><b>Order made by: </b> <b style="color: darkorange">{{ comanda.nume}}, {{comanda.prenume}}</b> | Location:{{comanda.judet}}-{{comanda.oras}}-{{comanda.zip}}
         <p><b>Products:</b></p>
         <div *ngFor="let produs of comanda.produse">{{produs.nume}} | Quantity:{{produs.cantitate}}</div>
-
+        <button class="btn btn-outline-warning" (click)="deleteOrder()" >
+          Send Order
+        </button>
       </li>
     </ul>
   </div>

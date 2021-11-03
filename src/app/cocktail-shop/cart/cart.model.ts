@@ -3,6 +3,7 @@ import {Ingredient} from "../../shared/ingredients.model";
 
 export class Cart{
   //public id:number;
+  key?: string | null;
   public nume:string;
   public prenume:string;
   public oras:string;

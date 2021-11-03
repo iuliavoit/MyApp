@@ -33,9 +33,30 @@ export class SeeOrdersComponent implements OnInit {
 
     });
   }
+  refreshList(): void {
+    this.currentOrder = undefined;
+    this.currentIndex = -1;
+    this.retrieveOrders();
+  }
   setActiveOrder(order, index): void {
     this.currentOrder= order;
     this.currentIndex = index;
+    //console.log(this.currentOrder.key);
   }
-
+  removeAllOrders(): void {
+    this.dataSt.deleteAll()
+      .then(() => this.refreshList())
+      .catch(err => console.log(err));
+  }
+  deleteOrder(): void {
+    if (this.currentOrder.key) {
+      //console.log(this.currentOrder);
+      this.dataSt.deleteone(this.currentOrder.key)
+        .then(() => {
+          this.refreshList();
+          //this.message = 'The tutorial was updated successfully!';
+        })
+        .catch(err => console.log(err));
+    }
+  }
 }
